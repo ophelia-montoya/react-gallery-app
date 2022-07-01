@@ -13,7 +13,7 @@ const PhotoContainer = props => {
   if (results.length !== 0) {
   return(
     <div className='photo-container'>
-        <h2>{props.query}</h2>
+        <h2>.˳⁺⁎˚ ꒰ఎ {props.query} ໒꒱ ˚⁎⁺˳ .</h2>
             <ul>
             {results.map(photo => (
              <Photo server={photo.server} id={photo.id} secret={photo.secret} key={photo.id}/>
@@ -21,7 +21,8 @@ const PhotoContainer = props => {
             </ul>
     </div>
 ); 
-  } else { 
+  }
+   else { 
    return <NotFound />
   }
 

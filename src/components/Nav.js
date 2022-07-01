@@ -6,9 +6,9 @@ class Nav extends Component {
     return(
         <nav className="main-nav">
           <ul>
-            <li><NavLink to='/cats' onClick={this.props.navSelection} id='cats'>Cats</NavLink></li>
-            <li><NavLink to='/dogs' onClick={this.props.navSelection} id='dogs'>Dogs</NavLink></li>
-            <li><NavLink to='/birds' onClick={this.props.navSelection} id='birds'>Birds</NavLink></li>
+            <li><NavLink to='/cats' onClick={this.props.navChosen} id='cats'>Cats</NavLink></li>
+            <li><NavLink to='/dogs' onClick={this.props.navChosen} id='dogs'>Dogs</NavLink></li>
+            <li><NavLink to='/birds' onClick={this.props.navChosen} id='birds'>Birds</NavLink></li>
           </ul>
         </nav> 
     )

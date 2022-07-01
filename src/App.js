@@ -12,6 +12,7 @@ import apiKey from './config.js';
 import Nav from './components/Nav';
 import PhotoContainer from './components/PhotoContainer'
 import SearchForm from './components/SearchForm';
+import NotFound from './components/NotFound.js';
 
 
 class App extends Component {
@@ -70,7 +71,7 @@ componentDidUpdate(prevProps){
       const pathName =
         this.props.location.pathname !== '/' 
         ? this.props.location.pathname.slice(1) //removes '/' from path
-        : 'cats';
+        : null
       this.newSearch(pathName);
     }
   }
@@ -78,22 +79,23 @@ componentDidUpdate(prevProps){
 /**
  * Renders App and child components
  * Routes render PhotoContainer component based on query results passed in via state props
- * Will display "Loading..." while data is being fetched
+ * Displays "Loading..." while data is being fetched
+ * Renders "404" page if user navigates to page that does not exist.
  */
 render() {
-    console.log(this.state.query)
     return(
       <div className='container'>
       <BrowserRouter>
         <SearchForm onSearch={this.newSearch} />
-        <Nav navSelection={this.handleClick}/>
+        <Nav navChosen={this.handleClick}/>
         {
           (this.state.isLoading)
-          ? <h2>Loading...</h2>
+          ? <h2>Loading... ₍ᐢ. ̫ .ᐢ₎</h2> 
           : 
         <Switch>
           <Route exact path='/' render={() => <PhotoContainer data={this.state.photos} query={this.state.query} />} />
-          <Route path='/:query' render={() => <PhotoContainer data={this.state.photos} query={this.state.query}/>} />
+          <Route exact path='/:query' render={() => <PhotoContainer data={this.state.photos} query={this.state.query}/>} />
+          <Route render={() => <NotFound is404={true}/>} />
         </Switch>
         }
       </BrowserRouter>
