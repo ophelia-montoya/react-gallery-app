@@ -1,3 +1,17 @@
+# NOTE: config.js file required in src directory
+
+This project reqiures you to set up your own config.js to work.
+
+Please get a Flickr API key by applying for a non-commercial API key here:
+https://www.flickr.com/services/apps/create/apply/ 
+
+config.js file should look like:
+
+const apiKey = 'YOUR_API_KEY_HERE';
+export default apiKey;
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
